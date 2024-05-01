@@ -41,11 +41,11 @@ router.post('/deptreg', async (req, res) =>{
 
 
 //GET ALL THE USERS
-router.get('/departments', (req, res) => {
+router.get('/categories', (req, res) => {
 
     try {
 
-        db.query('SELECT department_id, department_name FROM departments', (err , result)=> {
+        db.query('SELECT category_id, category_name FROM categories', (err , result)=> {
             
             if(err){
                 console.error('Error fetching items:', err);

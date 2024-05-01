@@ -44,10 +44,10 @@ router.post('/register', async (req, res) =>{
 router.post('/login', async(req, res)=>{
 
     try {
-        const {user_id, password} = req.body;
+        const {email, password} = req.body;
 
-        const getUserQuery = 'SELECT * FROM users WHERE user_id =?';
-        const[row] = await db.promise().execute(getUserQuery,[user_id ]);
+        const getUserQuery = 'SELECT * FROM users WHERE email =?';
+        const[row] = await db.promise().execute(getUserQuery,[email ]);
 
         if(row.length === 0){
             return res.status(401).json({Error: 'Invalid username or password'});
@@ -61,7 +61,7 @@ router.post('/login', async(req, res)=>{
 
         } 
 
-        const token = jwt.sign({Id: user.id, user_id: user.user_id,}, secretKey,{ expiresIn: '24h'});
+        const token = jwt.sign({Id: user.user_id, email: user.email,}, secretKey,{ expiresIn: '24h'});
 
         res.status(200).json({token});
 

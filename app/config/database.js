@@ -2,10 +2,10 @@
 const mysql = require('mysql2');
 
 const db = mysql.createPool({
-    host: 'sql6.freemysqlhosting.net',
-    user: 'sql6701897',
-    password: 'QGzqtCmgyN',
-    database: 'sql6701897',
+    host: 'localhost',
+    user: 'root',
+    password: '',
+    database: 'nfcnexus',
 
 });
   

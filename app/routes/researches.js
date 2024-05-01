@@ -6,7 +6,7 @@ const router = express.Router();
 const app = express();
 
 // Define the directory where PDF files are stored
-const pdfDirectory = path.join(__dirname, 'public', 'images');
+const pdfDirectory = path.join(__dirname, 'public', 'pdfs');
 
 // Serve PDF files based on the researches' file_name
 router.get('/pdf/:file_name', (req, res) => {
